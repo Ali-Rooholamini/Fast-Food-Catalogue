@@ -1,7 +1,13 @@
 import "./App.css";
 
+import Header from "./Header/header";
+
 function App() {
-  return <h1>فست فود کاتالوگ</h1>;
+  return (
+    <div className="wrapper bg-faded-color">
+      <Header></Header>
+    </div>
+  );
 }
 
 export default App;
