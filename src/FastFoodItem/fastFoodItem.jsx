@@ -1,3 +1,5 @@
+import { HiShoppingCart } from "react-icons/hi";
+
 const FastFoodItem = ({ name, price, ingredients, imageUrl }) => {
   return (
     <div className="card product-card h-100 border-0 shadow-sm pb-1">
@@ -12,6 +14,7 @@ const FastFoodItem = ({ name, price, ingredients, imageUrl }) => {
           className="btn btn-outline-success btn-sm fw-bold mt-auto w-100"
           type="button"
         >
+          <HiShoppingCart className="fs-5 ms-3" />
           افزودن به سبد خرید
         </button>
       </div>
