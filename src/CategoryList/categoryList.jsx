@@ -4,7 +4,7 @@ import axios from "../axios";
 
 import Loading from "../Loading/loading";
 
-const CategoryList = ({ filteredItems }) => {
+const CategoryList = ({ filteredItems, children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
@@ -26,26 +26,30 @@ const CategoryList = ({ filteredItems }) => {
     }
 
     return (
-      <ul className="nav">
-        <li className="nav-item" onClick={() => filteredItems()}>
-          <a className="nav-link" href="#">
-            همه فست فودها
-          </a>
-        </li>
-        {categories.map((category) => {
-          return (
-            <li
-              className="nav-item"
-              key={category.id}
-              onClick={() => filteredItems(category.id)}
-            >
-              <a className="nav-link" href="#">
-                {category.name}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
+      <div className="w-100 ps-3 d-flex justify-content-between gap-5 align-items-center">
+        <ul className="nav">
+          <li className="nav-item" onClick={() => filteredItems()}>
+            <a className="nav-link" href="#">
+              همه فست فودها
+            </a>
+          </li>
+          {categories.map((category) => {
+            return (
+              <li
+                className="nav-item"
+                key={category.id}
+                onClick={() => filteredItems(category.id)}
+              >
+                <a className="nav-link" href="#">
+                  {category.name}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+
+        {children}
+      </div>
     );
   };
 
