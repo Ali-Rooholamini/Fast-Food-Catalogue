@@ -21,8 +21,11 @@ function App() {
 
   useEffect(() => {
     getFastFoods();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const filteredItems = (categoryId) => {
+    getFastFoods(categoryId);
+  };
 
   const renderingContent = () => {
     if (isLoading) {
@@ -35,7 +38,7 @@ function App() {
   return (
     <div className="wrapper bg-faded-color">
       <Header></Header>
-      <CategoryList></CategoryList>
+      <CategoryList filteredItems={filteredItems}></CategoryList>
       <div className="container mt-4">{renderingContent()}</div>
     </div>
   );

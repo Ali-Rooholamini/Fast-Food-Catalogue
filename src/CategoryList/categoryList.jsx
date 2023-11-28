@@ -4,7 +4,7 @@ import axios from "../axios";
 
 import Loading from "../Loading/loading";
 
-const CategoryList = () => {
+const CategoryList = ({ filteredItems }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
 
@@ -27,14 +27,18 @@ const CategoryList = () => {
 
     return (
       <ul className="nav">
-        <li className="nav-item">
+        <li className="nav-item" onClick={() => filteredItems()}>
           <a className="nav-link" href="#">
             همه فست فودها
           </a>
         </li>
         {categories.map((category) => {
           return (
-            <li className="nav-item" key={category.id}>
+            <li
+              className="nav-item"
+              key={category.id}
+              onClick={() => filteredItems(category.id)}
+            >
               <a className="nav-link" href="#">
                 {category.name}
               </a>
