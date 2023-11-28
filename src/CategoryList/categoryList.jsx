@@ -1,24 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { useEffect, useState } from "react";
-import axios from "../axios";
-
+import useAxios from "../useAxios";
 import Loading from "../Loading/loading";
 
 const CategoryList = ({ filteredItems, children }) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [categories, setCategories] = useState([]);
-
-  useEffect(() => {
-    const getCategoryList = async () => {
-      const response = await axios.get("/FoodCategory/categories");
-      setCategories(response.data);
-      setIsLoading(false);
-    };
-
-    getCategoryList();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const [categories, isLoading] = useAxios({
+    url: "/FoodCategory/categories",
+    method: "Get",
+  });
 
   const renderingContent = () => {
     if (isLoading) {
