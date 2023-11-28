@@ -49,7 +49,11 @@ function App() {
           <div className="alert alert-warning text-center">
             آیتم مورد نظر شما یافت نشد ...
           </div>
-          <img className="mx-auto mt-5 d-block" src={notFound} alt="notFound" />
+          <img
+            className="mx-auto mt-5 d-block fade-in-horiz"
+            src={notFound}
+            alt="notFound"
+          />
         </>
       );
     }
